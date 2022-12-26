@@ -1,0 +1,34 @@
+﻿@using CrudMVC.Models.Entity
+@model List<Order>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<a class="btn btn-danger" href="/Home/Create">Add New User or Update Existing one</a>
+<table class="table table-bordered table-dark table-hover border-primary  d-xl-grid">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Update</th>
+            <th>Delete</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        <a class="btn btn-success" style=" font-size: 15px; width: 150px; height: 50px; color: White;border: none; position: fixed; right: 20px; bottom: 10px; " href="#">Go Top</a>
+        @foreach (var ordr in Model)
+        {
+            <tr b-scope="people" b-loop="person in people" b-paginate="5">
+                <td>@ordr.OrderID</td>
+                <td>@ordr.ShipName</td>
+                <td><a class=" btn btn-primary btn-success" href="/Home/Create/@ordr.OrderID">Update</a></td>
+                <td><a class=" btn btn-primary btn-warning" href="/Home/Update/@ordr.OrderID">Delete</a></td>
+            </tr>
+        }
+
+    </tbody>
+</table>
